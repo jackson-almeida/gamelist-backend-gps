@@ -17,11 +17,12 @@ let UserService = class UserService {
         this.prismaService = prismaService;
     }
     async create(data) {
-        return await this.prismaService.game.create({
+        return await this.prismaService.user.create({
             data
         });
     }
-    async findOne(id) {
+    async findOne(idParam) {
+        const id = +idParam;
         return this.prismaService.user.findFirst({
             where: { id }
         });

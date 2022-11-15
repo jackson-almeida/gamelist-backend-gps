@@ -10,13 +10,14 @@ export class UserService {
     private readonly prismaService: PrismaService,
   ) {}
 
-  async create(data: Prisma.GameCreateInput): Promise<Prisma.GameGetPayload<any>> {
-    return await this.prismaService.game.create({
+  async create(data: Prisma.UserCreateInput): Promise<Prisma.UserGetPayload<any>> {
+    return await this.prismaService.user.create({
       data
     });
   }
 
-  async findOne(id: number): Promise<User> {
+  async findOne(idParam: number): Promise<User> {
+    const id = +idParam;
     return this.prismaService.user.findFirst({
       where: { id }
     });

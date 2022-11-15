@@ -20,11 +20,13 @@ let UserController = class UserController {
         this.userService = userService;
     }
     findOne(id) {
-        console.log("TEsteee");
         return this.userService.findOne(id);
     }
     findAll() {
         return this.userService.findAll();
+    }
+    create(body) {
+        return this.userService.create(body);
     }
 };
 __decorate([
@@ -40,6 +42,13 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], UserController.prototype, "findAll", null);
+__decorate([
+    (0, common_1.Post)(),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], UserController.prototype, "create", null);
 UserController = __decorate([
     (0, common_1.Controller)('user'),
     __metadata("design:paramtypes", [user_service_1.UserService])
